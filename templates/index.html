@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+    <title>Spring</title>
+  </head>
+  <body>
+        <main>
+            <div id="container">
+              <form method="POST" action = "{% url 'index' %}">
+                {% csrf_token %}
+                <!-- <img src="https://infatica.io/blog/content/images/2020/06/an-extensive-overview-of-python-web-crawlers.png" style="object-fit:cover;"><br> -->
+                <input type="text" name="url" class="my-3" placeholder="URL of Website" value="" required><br>
+                <input type="number" name="depth" class="my-3" placeholder="Depth of Website" value="" required><br>
+                <!-- <input type="text" class="my-3" placeholder="Images/Links/Mail Id/Header" value=""><br> -->
+                <div class="card my-1">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input name="images" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked3" checked>
+                            <label class="form-check-label" for="flexCheckChecked3">
+                              Images
+                            </label>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="card my-1">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input name="links" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked1" checked>
+                            <label class="form-check-label" for="flexCheckChecked1">
+                              Links
+                            </label>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="card my-1">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input name="mails" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked2" checked>
+                            <label class="form-check-label" for="flexCheckChecked2">
+                              Mail Id
+                            </label>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="card my-1">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input name="header" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked4" checked>
+                            <label class="form-check-label" for="flexCheckChecked4">
+                              Headers
+                            </label>
+                          </div>
+                    </div>
+                  </div>
+                <input type="submit" value="START CRAWLING"><br>
+              </form>
+            </div>
+            </main>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  </body>
+</html>
+
