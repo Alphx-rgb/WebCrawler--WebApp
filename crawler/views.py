@@ -46,9 +46,9 @@ def index(req):
         # body = json.loads(req.body)
         file = WCSC.crawl(url,depth,headers,images,links,mails)
         print(file,"----",os.getcwd())
-        shutil.rmtree(os.getcwd()+"\\"+file)
+        shutil.rmtree(os.getcwd()+"/"+file)
 
-        folder= os.path.join(str(os.getcwd()) + "\\report.zip")
+        folder= os.path.join(str(os.getcwd()) + "/report.zip")
         print(folder)
         file_server= pathlib.Path(folder)
         if not file_server.exists():
