@@ -8,7 +8,7 @@ import os
 from termcolor import cprint
 from selenium.webdriver.chrome.options import Options
 #def start(url):
-
+import os
 
 
 
@@ -20,13 +20,13 @@ def fun(urls,dir_name):
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')        
-        driver=webdriver.Chrome(executable_path=".\\chromedriver",chrome_options=chrome_options)
+        driver=webdriver.Chrome(executable_path=(os.getcwd()+"\\..\\chromedriver.exe"),chrome_options=chrome_options)
         time.sleep(2)
 
         try:
             driver.get(element)
             driver.maximize_window()
-            #print(os.getcwd(),"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+            print(os.getcwd(),"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%_dynamic_website _____")
             driver.save_screenshot(os.getcwd() + "/Screen-Shots/" + str(name_of_ss) + "_ss.png")
             driver.close()
         except:
@@ -47,8 +47,9 @@ def get(url,lst,depth,tag,attribute,c,name_file,k):
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--disable-dev-shm-usage')        
-        driver=webdriver.Chrome(executable_path=".\\chromedriver",chrome_options=chrome_options)
+        chrome_options.add_argument('--disable-dev-shm-usage')
+        print(os.getcwd()+"\\..\\app\\chromedriver.exe")        
+        driver=webdriver.Chrome(executable_path=os.getcwd()+"\\..\\chromedriver.exe",chrome_options=chrome_options)
         driver.get(url)
         elem = driver.find_elements_by_tag_name(tag)
         for lnk in elem:
@@ -69,7 +70,7 @@ def get(url,lst,depth,tag,attribute,c,name_file,k):
             chrome_options.add_argument('--headless')
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--disable-dev-shm-usage')        
-            driver=webdriver.Chrome(executable_path=".\\chromedriver",chrome_options=chrome_options)
+            driver=webdriver.Chrome(executable_path=os.getcwd()+"\\..\\chromedriver.exe",chrome_options=chrome_options)
             driver.get(element)
             elem = driver.find_elements_by_tag_name(tag)
             for lnk in elem:

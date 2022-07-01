@@ -165,11 +165,12 @@ def crawl(urll,depth,headers,images,links,mails):
     cprint("#######################","red")
     if(f.read() == ''):
         f.close()
-        for i in range(1,depth+1):
-            lst=dynamic_websites.get(url,lst,depth,"a","href",c,"links",i)
-            lst1=dynamic_websites.get(url,lst1,1,"img","src",c,"images",i)
+        # for i in range(1,depth+1):
+            # lst=dynamic_websites.get(url,lst,depth,"a","href",c,"links",i)
+            # lst1=dynamic_websites.get(url,lst1,1,"img","src",c,"images",i)
     print("--",os.getcwd())
-    shutil.make_archive("report", 'zip', os.getcwd())
-
+    os.chdir(".\\..")
+    shutil.make_archive("report", 'zip', os.getcwd()+"\\"+c)
+    # os.chdir(".\\..")
     return(c)
     

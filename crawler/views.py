@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 import json
 from app import WCSC
 # Create your views here.
-
+import shutil
 def download(req,folder):
     pass
 
@@ -18,22 +18,37 @@ def index(req):
         url = req.POST['url']
         depth = int(req.POST['depth'])
         headers=0
-        if( req.POST['header']== 1):
-            headers=1
+        try:
+            if( req.POST['header']== 1):
+                headers=1
+        except:
+            pass
         images=0
-        if( req.POST['images']== 1):
-            images=1
+        try:
+            if( req.POST['images']== 1):
+                images=1
+        except:
+            pass
         links=0
-        if( req.POST['links']== 1):
-            links=1
+        try:
+            if( req.POST['links']== 1):
+                links=1
+        except:
+            pass
         mails=0
-        if( req.POST['mails']== 1):
-            mails=1
+        try:
+            if( req.POST['mails']== 1):
+                mails=1
+        except:
+            pass
         print(req.POST,"######")
         # body_unicode = req.body.decode('utf-8')
         # body = json.loads(req.body)
-        WCSC.crawl(url,depth,headers,images,links,mails)
-        folder= os.path.join(str(os.getcwd() + "\\report.zip"))
+        file = WCSC.crawl(url,depth,headers,images,links,mails)
+        print(file,"----",os.getcwd())
+        shutil.rmtree(os.getcwd()+"\\"+file)
+
+        folder= os.path.join(str(os.getcwd()) + "\\report.zip")
         print(folder)
         file_server= pathlib.Path(folder)
         if not file_server.exists():
