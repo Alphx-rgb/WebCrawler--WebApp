@@ -1,1 +1,0 @@
-web: gunicorn WebCrawler.wshi --log-file -
