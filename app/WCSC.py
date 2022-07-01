@@ -169,8 +169,8 @@ def crawl(urll,depth,headers,images,links,mails):
             # lst=dynamic_websites.get(url,lst,depth,"a","href",c,"links",i)
             # lst1=dynamic_websites.get(url,lst1,1,"img","src",c,"images",i)
     print("--",os.getcwd())
-    os.chdir(".\\..")
-    shutil.make_archive("report", 'zip', os.getcwd()+"\\"+c)
+    os.chdir(".//..")
+    shutil.make_archive("report", 'zip', os.getcwd()+"//"+c)
     # os.chdir(".\\..")
     return(c)
     
